@@ -1,0 +1,15 @@
+{
+	"version": "0.3.0",
+	"configurations": [
+	  {
+		"type": "minecraft-js",
+		"request": "attach",
+		"name": "Buggin'",
+		"mode": "listen",
+		"preLaunchTask": "build",
+		"targetModuleUuid": "5ae4ab19-6e81-496e-a842-571eb3f330d6",
+		"localRoot": "${workspaceFolder}/addons/debugging",
+		"port": 19144
+	 }
+	]
+  }
