@@ -1,0 +1,25 @@
+{
+	"entity_sounds": {
+		"entities": {
+			"creaking" : {
+				"events" : {
+					"activate" : "mob.creaking.activate",
+					"ambient" : "mob.creaking.ambient",
+					"attack" : "mob.creaking.attack",
+					"creaking_heart_spawn" : "mob.creaking.spawn",
+					"deactivate" : "mob.creaking.deactivate",
+					"death" : "mob.creaking.death",
+					"freeze" : "mob.creaking.freeze",
+					"step" : {
+						"pitch" : 1.0,
+						"sound" : "mob.creaking.step",
+						"volume" : 0.04
+					},
+					"unfreeze" : "mob.creaking.unfreeze"
+				},
+				"pitch" : 1.0,
+				"volume" : 0.05
+			}
+		}
+	}
+}
