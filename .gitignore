@@ -1,10 +1,20 @@
+# DrAv Legacy?
 **/old/**
 **/wip/**
 .idea/
 **TODO**
 .env
 
+# Debugger
+.vscode/launch.json
+
 # NPM
 node_modules/
 package-lock.json
 # package.json
+
+# Regolith
+build/
+data/
+.regolith/
+config.json

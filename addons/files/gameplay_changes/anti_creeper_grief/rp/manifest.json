@@ -1,0 +1,30 @@
+{
+	"format_version": 2,
+	"header": {
+	  "name": "Anti Creeper Grief RP",
+	  "description": "TESTING",
+	  "uuid": "c7a36b8d-66ad-49df-896b-d816a009ec21",
+	  "version": [
+		1,
+		0,
+		0
+	  ],
+	  "min_engine_version": [
+		1,
+		16,
+		0
+	  ]
+	},
+	"modules": [
+	  {
+		"type": "resources",
+		"description": "_",
+		"uuid": "f9c1f26b-7d62-4a1f-aea4-212c50f55882",
+		"version": [
+		  1,
+		  0,
+		  0
+		]
+	  }
+	]
+  }
