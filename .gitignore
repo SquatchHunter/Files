@@ -3,6 +3,8 @@
 .idea/
 **TODO**
 .env
+node_modules/
+package-lock.json
 
 # NPM
 /node_modules/
