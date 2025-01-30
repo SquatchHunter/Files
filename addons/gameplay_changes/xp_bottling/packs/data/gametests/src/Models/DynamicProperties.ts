@@ -33,7 +33,7 @@ export interface XpBottlingSettings {
 }
 
 export enum PlayerXpBottlingSettingsDynamicProperties {
-	initialised = 'bt:xb.player_initialised',
+	initialized = 'bt:xb.player_initialized',
 	recievedBook = 'bt:xb.playerRecievedBook',
 	enableToolTips = 'bt:xb.playerToolTips',
 	consumeFullStack = 'bt:xb.consumeFullStack',
@@ -42,7 +42,7 @@ export enum PlayerXpBottlingSettingsDynamicProperties {
 }
 
 export interface PlayerXpBottlingSettings {
-	// Indicates whether the player has been initialised in the XpBottling system.
+	// Indicates whether the player has been initialized in the XpBottling system.
 	initialized: boolean;
 	// Indicated whether the player has recieved the guide book to let them configure settings.
 	recievedBook: boolean;
