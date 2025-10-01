@@ -1,7 +1,7 @@
 {
-	"name": "@bedrock-tweaks/graves",
+	"name": "@bedrock-tweaks/silk_touch_budding_amethyst",
 	"version": "1.21.0-1.0.0",
-	"description": "Graves addon - place graves when you die to retrieve your items",
+	"description": "Lets you collect budding amethyst using Silk Touch",
 	"private": true,
 	"scripts": {
 		"regolith-install": "regolith install-all",

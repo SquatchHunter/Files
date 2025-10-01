@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"workspaces": [
-		"graves"
+		"graves",
+		"silk_touch_budding_amethyst"
 	]
 }

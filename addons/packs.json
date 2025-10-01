@@ -17,6 +17,18 @@
 					"version": "1.21 - 1.0.0"
 				}
 			]
+		},
+		{
+			"id": "silk_touch_budding_amethyst",
+			"name": "Silk Touch Budding Amethyst",
+			"packs": [
+				{
+					"id": "silk_touch_budding_amethyst",
+					"name": "Silk Touch Budding Amethyst",
+					"description": "Lets you collect budding amethyst using Silk Touch",
+					"version": "1.21 - 1.0.0"
+				}
+			]
 		}
 	],
 	"combinations": [],
