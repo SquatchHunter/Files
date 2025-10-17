@@ -1,0 +1,81 @@
+/**
+ * Definitions to use multiple Dynamic Properties as a Typed Object
+ * Enum keys and object properties should match for proper conconfigVersion.
+ */
+export enum XpBottlingSettingsDynamicProperties {
+	initialized = 'bt:xb.settings.initialized',
+	configVersion = 'bt:xb.settings.configVersion',
+	amountOfXp = 'bt:xb.settings.amountOfXp',
+	instantUse = 'bt:xb.settings.instantUse',
+	timeToUse = 'bt:xb.settings.timeToUse',
+	enableStackConsume = 'bt:xb.settings.enableStackConsume',
+	stackMultiplier = 'bt:xb.settings.stackMultiplier',
+	enableStackCrafting = 'bt:xb.settings.enableStackCrafting'
+}
+
+export interface XpBottlingSettings {
+	// Indicates whether the XpBottling system settings have been initialized.
+	initialized?: boolean;
+	// Indicates the current loaded configVersion of the addon.
+	configVersion: number;
+	// The amount of XP to store per bottle.
+	amountOfXp: number;
+	// Controls whether XP bottles are consumed instantly.
+	instantUse: boolean;
+	// The amount of time taken to drink a bottle.
+	timeToUse: number;
+	// Controls whether Sneak + Use consumes a full stack of XP bottles.
+	enableStackConsume: boolean;
+	// When consuming a stack of bottles, the amount to multiply it by.
+	stackMultiplier: number;
+	// Controls whether Sneak + Use fills an entire stack of empty Glass Bottles.
+	enableStackCrafting: boolean;
+}
+
+export enum PlayerXpBottlingSettingsDynamicProperties {
+	initialized = 'bt:xb.player.initialized',
+	configVersion = 'bt:xb.player.configVersion',
+	receivedBook = 'bt:xb.player.recievedBook',
+	enableToolTips = 'bt:xb.player.enableToolTips',
+	consumeFullStack = 'bt:xb.player.consumeFullStack',
+	fillFullStack = 'bt:xb.player.fillFullStack',
+	usingSince = 'bt:xb.player.usingSince'
+}
+
+/**
+ * 
+ */
+export interface PlayerXpBottlingSettings {
+	// Indicates whether the player has been initialized in the XpBottling system.
+	initialized?: boolean;
+	// Indicates the current loaded configVersion of the addon.
+	configVersion: number;
+	// Indicated whether the player has recieved the guide book to let them configure settings.
+	receivedBook?: boolean;
+	// Controls whether actionbar tool tips are displayed.
+	enableToolTips: boolean;
+	// Controls whether Sneak + Use a stack of XP Bottles drinks all of them.
+	consumeFullStack: boolean;
+	// Controls whether Sneak + Use a stack of empty Glass Bottles fills all that it can.
+	fillFullStack: boolean;
+	// [Internal] Used to check if item has been used for global timeToUse setting.
+	usingSince: number;
+}
+
+export const XpBottlingServerDefaults: XpBottlingSettings = {
+	configVersion: 1,
+	amountOfXp: 22,
+	instantUse: false,
+	timeToUse: 16,
+	enableStackConsume: false,
+	stackMultiplier: 4,
+	enableStackCrafting: false,
+};
+
+export const XpBottlingPlayerDefaults: PlayerXpBottlingSettings = {
+	configVersion: 1,
+	enableToolTips: true,
+	consumeFullStack: true,
+	fillFullStack: true,
+	usingSince: 0,
+};
