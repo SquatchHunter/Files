@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"workspaces": [
-		"graves"
+		"graves",
+		"xp_bottling"
 	]
 }

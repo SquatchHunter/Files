@@ -63,9 +63,7 @@ export interface Grave {
 	playerExperience: number;
 }
 
-export enum GravesListDynamicProperties {
-	list = 'bt:g.graves_list'
-}
+export enum GravesListDynamicProperties { list = 'bt:g.graves_list' }
 
 export interface GravesList {
 	// Stringified Grave[]

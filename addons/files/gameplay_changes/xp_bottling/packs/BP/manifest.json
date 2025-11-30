@@ -1,0 +1,67 @@
+{
+	"format_version": 2,
+	"header": {
+		"name": "pack.name",
+		"description": "pack.description",
+		"uuid": "5c9d7ef2-a7bc-40a9-8ec2-5b91fba4aa43",
+		"pack_scope": "world",
+		"version": [
+			1,
+			0,
+			0
+		],
+		"min_engine_version": [
+			1,
+			21,
+			50
+		]
+	},
+	"modules": [
+		{
+			"type": "data",
+			"uuid": "398ea483-c39e-4e6b-bc91-aba92e07bb80",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"type": "script",
+			"language": "javascript",
+			"uuid": "5556afdb-f23c-48e6-9bd4-e7936117739d",
+			"entry": "scripts/main.js",
+			"version": [
+				1,
+				0,
+				0
+			]
+		}
+	],
+	"dependencies": [
+		{
+			"uuid": "bda681f8-c66e-410c-8b24-c088c5d327dd",
+			"version": [
+				1,
+				0,
+				0
+			]
+		},
+		{
+			"module_name": "@minecraft/server",
+			"version": "2.2.0"
+		},
+		{
+			"module_name": "@minecraft/server-ui",
+			"version": "2.0.0"
+		}
+	],
+	"metadata": {
+		"product_type": "addon",
+		"authors": [
+			"Vanilla Tweaks",
+			"Bedrock Tweaks",
+			"Squatch_"
+		]
+	}
+}
