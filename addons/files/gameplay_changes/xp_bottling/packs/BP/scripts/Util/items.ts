@@ -6,6 +6,7 @@ import {
 	ContainerSlot,
 	ItemStack
 } from '@minecraft/server';
+import { Status } from './interfaces';
 
 /**
  * Takes a provided entity and item and attempts to remove the item/s from the entity.
@@ -15,13 +16,13 @@ import {
  * @param {number} amount The amount of the item you wish to remove.
  * @param {ContainerSlot} slot The slot you wish to remove the item from.
  *
- * @returns {boolean} The result of the operation.
+ * @returns {Status} The result of the operation.
  */
-export const removeItemFromEntity = (entity: Entity, item: ItemStack, amount: number = 1, slot?: ContainerSlot): boolean => {
+export const removeItemFromEntity = (entity: Entity, item: ItemStack, amount: number = 1, slot?: ContainerSlot): Status => {
 	// guard clauses
-	if (!entity.hasComponent(EntityComponentTypes.Inventory)) return false;
+	if (!entity.hasComponent(EntityComponentTypes.Inventory)) return { status: false, error: 'entity has no inventory' };
 	const entityInv: Container = (entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent).container;
-	if (!entityInv.contains(item)) return false;
+	if (!entityInv.contains(item)) return { status: false, error: 'entity does not have the item' };
 
 	// default clauses
 	slot ??= entityInv.getSlot(entityInv.find(item) as number);
@@ -35,10 +36,10 @@ export const removeItemFromEntity = (entity: Entity, item: ItemStack, amount: nu
 			slot.setItem(undefined);
 			break;
 		default:
-			return false;
+			return { status: false, error: 'not enough items in slot to remove' };
 	}
 
-	return true;
+	return { status: true };
 };
 
 /**
@@ -49,10 +50,10 @@ export const removeItemFromEntity = (entity: Entity, item: ItemStack, amount: nu
  * @param {number} amount The amount of the item you wish to give.
  * @param {ContainerSlot} slot The slot you wish to place the item in.
  *
- * @returns {boolean} The result of the operation.
+ * @returns {Status} The result of the operation.
  */
-export const giveItemtoEntity = (entity: Entity, item: ItemStack, amount: number = 1, slot?: ContainerSlot): boolean => {
-	if (!entity.hasComponent(EntityComponentTypes.Inventory)) return false;
+export const giveItemtoEntity = (entity: Entity, item: ItemStack, amount: number = 1, slot?: ContainerSlot): Status => {
+	if (!entity.hasComponent(EntityComponentTypes.Inventory)) return { status: false, error: 'entity has no inventory' };
 	const entityInv: Container = (entity.getComponent(EntityComponentTypes.Inventory) as EntityInventoryComponent).container;
 
 	// what the fuck is this you ask?
@@ -73,8 +74,8 @@ export const giveItemtoEntity = (entity: Entity, item: ItemStack, amount: number
 			break;
 		default:
 			// this should never run, right?
-			return false;
+			return { status: false, error: 'idk what happened man, somehow the inventory was full and there was no where to spawn the item' };
 	}
 
-	return true;
+	return { status: true };
 };

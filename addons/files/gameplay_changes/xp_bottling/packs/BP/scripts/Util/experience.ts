@@ -1,4 +1,5 @@
 import { Player } from '@minecraft/server';
+import { Status } from './interfaces';
 
 /**
  * Removes the amount of XP from the player provided.
@@ -8,8 +9,8 @@ import { Player } from '@minecraft/server';
  *
  * @returns {boolean} The result of the operation.
  */
-export const removeExperiencefromPlayer = (player: Player, amount: number): boolean => {
-	if (player.getTotalXp() < amount) return false;
+export const removeExperiencefromPlayer = (player: Player, amount: number): Status => {
+	if (player.getTotalXp() < amount) return { status: false, error: 'not enough experience' };
 
 	if (player.xpEarnedAtCurrentLevel >= amount) {
 		void player.addExperience(-amount);
@@ -24,5 +25,5 @@ export const removeExperiencefromPlayer = (player: Player, amount: number): bool
 		void player.addExperience(Math.abs(remainder));
 	}
 
-	return true;
+	return { status: true };
 };

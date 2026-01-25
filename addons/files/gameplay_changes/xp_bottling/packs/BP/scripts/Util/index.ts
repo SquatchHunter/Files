@@ -7,6 +7,7 @@
 
 export { getProperties, setProperties } from './dynamicProperties';
 export { removeExperiencefromPlayer } from './experience';
+export { Status } from './interfaces';
 export { giveItemtoEntity, removeItemFromEntity } from './items';
 export { getObjective, setObjective } from './scoreboard';
 export { playSounds } from './sounds';

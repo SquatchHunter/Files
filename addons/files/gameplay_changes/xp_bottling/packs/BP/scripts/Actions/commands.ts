@@ -34,9 +34,20 @@ export const handleCommand = (origin: CustomCommandOrigin, subCommand: string): 
 };
 
 const handleSettings = ({}: CustomCommandOrigin): void => {
-
+	// TODO: global settings
+	// quick fill toggle
+	// quick empty toggle?
+	// instant use toggle?
+	// additional cost to fill/empty stacks
+	// TODO: player settings
+	// tooltip toggle
+	// quick fill toggle
+	// quick empty toggle?
+	// xp per bottle (saved to item stack)
 };
 
 const handleReset = ({}: CustomCommandOrigin): void => {
+	// TODO: list of all configured players
+	// TODO: reset form
 
 };

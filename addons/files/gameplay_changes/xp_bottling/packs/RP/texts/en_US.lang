@@ -35,8 +35,8 @@ bt.xb.confirm.no=§l§mNo§r, leave it.
 
 ## Various Tooltips
 bt.xb.tooltip.notEnough=Not enough §l§aXP§r
-bt.xb.tooltip.increase=+%1 §l§aXP§r
-bt.xb.tooltip.decrease=-%1 §l§aXP§r
+bt.xb.tooltip.increase=§q+§r%1 §aXP§r
+bt.xb.tooltip.decrease=§m-§r%1 §aXP§r
 bt.xb.tooltip.worldDisabled=§l%2§r is not enabled on this World.%1If you are an OP, run §g/function xp_bottling/open_config§r to change the settings
 bt.xb.tooltip.playerDisabled=§l%2§r is not enabled for your Player.%1You can open your §gGuide Book§r to change your settings
 

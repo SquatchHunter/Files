@@ -3,9 +3,7 @@
  * Enum keys and object properties should match for proper conconfigVersion.
  */
 export enum xbGlobalDynamicProperties {
-	initialized = 'bt:xb.settings.initialized',
 	configVersion = 'bt:xb.settings.configVersion',
-	amountOfXp = 'bt:xb.settings.amountOfXp',
 	instantUse = 'bt:xb.settings.instantUse',
 	timeToUse = 'bt:xb.settings.timeToUse',
 	enableStackConsume = 'bt:xb.settings.enableStackConsume',
@@ -14,16 +12,10 @@ export enum xbGlobalDynamicProperties {
 }
 
 export interface XBGlobalSettings {
-	// Indicates whether the XpBottling system settings have been initialized.
-	initialized?: boolean;
 	// Indicates the current loaded configVersion of the addon.
 	configVersion: number;
-	// The amount of XP to store per bottle.
-	amountOfXp: number;
 	// Controls whether XP bottles are consumed instantly.
 	instantUse: boolean;
-	// The amount of time taken to drink a bottle.
-	timeToUse: number;
 	// Controls whether Sneak + Use consumes a full stack of XP bottles.
 	enableStackConsume: boolean;
 	// When consuming a stack of bottles, the amount to multiply it by.
@@ -33,7 +25,6 @@ export interface XBGlobalSettings {
 }
 
 export enum xbPlayerDynamicProperties {
-	initialized = 'bt:xb.player.initialized',
 	configVersion = 'bt:xb.player.configVersion',
 	receivedBook = 'bt:xb.player.recievedBook',
 	enableToolTips = 'bt:xb.player.enableToolTips',
@@ -42,12 +33,10 @@ export enum xbPlayerDynamicProperties {
 }
 
 export interface XBPlayerSettings {
-	// Indicates whether the player has been initialized in the XpBottling system.
-	initialized?: boolean;
 	// Indicates the current loaded configVersion of the addon.
 	configVersion: number;
-	// Indicated whether the player has recieved the guide book to let them configure settings.
-	receivedBook?: boolean;
+	// The amount of XP to store per bottle.
+	amountOfXp: number;
 	// Controls whether actionbar tool tips are displayed.
 	enableToolTips: boolean;
 	// Controls whether Sneak + Use a stack of XP Bottles drinks all of them.
@@ -57,17 +46,16 @@ export interface XBPlayerSettings {
 }
 
 export const xbGlobalDefaults: XBGlobalSettings = {
-	configVersion: 1,
-	amountOfXp: 22,
+	configVersion: 2,
 	instantUse: false,
-	timeToUse: 16,
 	enableStackConsume: false,
 	stackMultiplier: 4,
 	enableStackCrafting: false,
 };
 
 export const xbPlayerDefaults: XBPlayerSettings = {
-	configVersion: 1,
+	configVersion: 2,
+	amountOfXp: 23,
 	enableToolTips: true,
 	consumeFullStack: true,
 	fillFullStack: true,
