@@ -1,7 +1,7 @@
 {
-	"name": "@bedrock-tweaks/graves",
+	"name": "@bedrock-tweaks/desert-mobs-drop-sand",
 	"version": "1.21 - 1.0.0",
-	"description": "When you die, it places a grave to save all your drops. Hit a grave to retrieve your items.",
+	"description": "Husks drop 0-2 sand on death, making it renewable.",
 	"private": true,
 	"scripts": {
 		"regolith-install": "regolith install-all",

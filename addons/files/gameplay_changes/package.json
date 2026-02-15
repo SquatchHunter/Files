@@ -1,6 +1,7 @@
 {
 	"private": true,
 	"workspaces": [
-		"graves"
+		"graves",
+		"desert_mobs_drop_sand"
 	]
 }
