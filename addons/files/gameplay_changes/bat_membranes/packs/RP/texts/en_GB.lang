@@ -1,0 +1,10 @@
+pack.name=Bat Membranes - Gameplayer Changes - Bedrock Tweaks
+pack.description=Disables phantoms and get membranes from bats instead
+
+bt.bm.command.toggleDrops=§g%1§r membrane drops have been %2.	## unused
+bt.bm.state.enabled=§qEnabled§r									## unused
+bt.bm.state.disabled=§mDisabled§r								## unused
+
+bt.bm.logic.do_insomnia=§gBat Membranes§r requires §udoInsomnia§r to be false, reverting change.
+
+bt.bm.misc.uninstall=§eUninstalled Correctly§r%1Remove the Bat Membranes pack from Behavior Packs to complete the uninstall.

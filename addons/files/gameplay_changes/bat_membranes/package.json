@@ -1,0 +1,31 @@
+{
+	"name": "@bedrock-tweaks/bat-membranes",
+	"version": "1.21 - 1.0.0",
+	"description": "Disables phanbtoms and get membranes from bats instead",
+	"private": true,
+	"scripts": {
+		"regolith-install": "regolith install-all",
+		"build": "regolith run build",
+		"dev": "regolith watch",
+		"lint": "npx eslint ."
+	},
+	"dependencies": {
+		"@minecraft/common": "^1.2.0",
+		"@minecraft/math": "^2.4.0",
+		"@minecraft/server": "^2.5.0",
+		"@minecraft/server-ui": "^2.0.0",
+		"@minecraft/vanilla-data": "^1.26.2",
+		"@stylistic/eslint-config": "^1.1.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.3",
+		"@eslint/json": "^0.13.2",
+		"@stylistic/eslint-plugin": "^5.9.0",
+		"@typescript-eslint/eslint-plugin": "^8.56.1",
+		"@typescript-eslint/parser": "^8.56.1",
+		"eslint": "^9.39.3",
+		"eslint-plugin-minecraft-linting": "^2.0.12",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.56.1"
+	}
+}

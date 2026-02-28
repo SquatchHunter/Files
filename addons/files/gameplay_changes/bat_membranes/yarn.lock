@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@bedrock-tweaks/bat-membranes@workspace:addons/files/gameplay_changes/bat_membranes":
+"@bedrock-tweaks/bat-membranes@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@bedrock-tweaks/bat-membranes@workspace:addons/files/gameplay_changes/bat_membranes"
+  resolution: "@bedrock-tweaks/bat-membranes@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.39.3"
     "@eslint/json": "npm:^0.13.2"
@@ -16,28 +16,6 @@ __metadata:
     "@minecraft/server": "npm:^2.5.0"
     "@minecraft/server-ui": "npm:^2.0.0"
     "@minecraft/vanilla-data": "npm:^1.26.2"
-    "@stylistic/eslint-config": "npm:^1.1.0"
-    "@stylistic/eslint-plugin": "npm:^5.9.0"
-    "@typescript-eslint/eslint-plugin": "npm:^8.56.1"
-    "@typescript-eslint/parser": "npm:^8.56.1"
-    eslint: "npm:^9.39.3"
-    eslint-plugin-minecraft-linting: "npm:^2.0.12"
-    typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.56.1"
-  languageName: unknown
-  linkType: soft
-
-"@bedrock-tweaks/graves@workspace:addons/files/gameplay_changes/graves":
-  version: 0.0.0-use.local
-  resolution: "@bedrock-tweaks/graves@workspace:addons/files/gameplay_changes/graves"
-  dependencies:
-    "@eslint/js": "npm:^9.39.3"
-    "@eslint/json": "npm:^0.13.2"
-    "@minecraft/common": "npm:1.2.0"
-    "@minecraft/math": "npm:2.4.0"
-    "@minecraft/server": "npm:2.5.0"
-    "@minecraft/server-ui": "npm:^2.0.0"
-    "@minecraft/vanilla-data": "npm:1.26.2"
     "@stylistic/eslint-config": "npm:^1.1.0"
     "@stylistic/eslint-plugin": "npm:^5.9.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.56.1"
@@ -259,14 +237,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@minecraft/common@npm:1.2.0, @minecraft/common@npm:^1.0.0, @minecraft/common@npm:^1.2.0":
+"@minecraft/common@npm:^1.0.0, @minecraft/common@npm:^1.2.0":
   version: 1.2.0
   resolution: "@minecraft/common@npm:1.2.0"
   checksum: 10c0/597c3ff8ab275ba5d5fb3037e68970e59ac96e8793b7738178c95b17d22a8f48a4412425314ed494f664466dd9a342e2a9eff52af544e57689f103c2ae965e10
   languageName: node
   linkType: hard
 
-"@minecraft/math@npm:2.4.0, @minecraft/math@npm:^2.4.0":
+"@minecraft/math@npm:^2.4.0":
   version: 2.4.0
   resolution: "@minecraft/math@npm:2.4.0"
   peerDependencies:
@@ -285,16 +263,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@minecraft/server@npm:2.5.0, @minecraft/server@npm:^2.5.0":
-  version: 2.5.0
-  resolution: "@minecraft/server@npm:2.5.0"
-  peerDependencies:
-    "@minecraft/common": ^1.2.0
-    "@minecraft/vanilla-data": ">=1.20.70"
-  checksum: 10c0/03e9de34fd54b5a323b75d79d19255884854753598159d17c2740377200098d9dcd5ddda1eb7116e4571bd21be9f57844c0d5f85b888ca78cf13bf84ee39022a
-  languageName: node
-  linkType: hard
-
 "@minecraft/server@npm:^2.0.0":
   version: 2.2.0
   resolution: "@minecraft/server@npm:2.2.0"
@@ -305,7 +273,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@minecraft/vanilla-data@npm:1.26.2, @minecraft/vanilla-data@npm:^1.26.2":
+"@minecraft/server@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@minecraft/server@npm:2.5.0"
+  peerDependencies:
+    "@minecraft/common": ^1.2.0
+    "@minecraft/vanilla-data": ">=1.20.70"
+  checksum: 10c0/03e9de34fd54b5a323b75d79d19255884854753598159d17c2740377200098d9dcd5ddda1eb7116e4571bd21be9f57844c0d5f85b888ca78cf13bf84ee39022a
+  languageName: node
+  linkType: hard
+
+"@minecraft/vanilla-data@npm:^1.26.2":
   version: 1.26.2
   resolution: "@minecraft/vanilla-data@npm:1.26.2"
   checksum: 10c0/5bfa3b229d2f0ba5e48429aaa9436dcd7342088e68b864071847e4c54f98148f6f99a205125a3dc7251d5ce5d808134b0181d32a20498f2c842a7ea7e80c693f
@@ -794,12 +772,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bedrock-tweaks@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "bedrock-tweaks@workspace:."
-  languageName: unknown
-  linkType: soft
-
 "brace-expansion@npm:^1.1.7":
   version: 1.1.12
   resolution: "brace-expansion@npm:1.1.12"
@@ -1217,12 +1189,6 @@ __metadata:
   checksum: 10c0/e957a1c6b0254aa15b8cce8533e24165abd98fadc98575db082b786b5da1b7d72062b81bfdcd1da2f4d46b6ed93bec2434e62333e9b4261d79ef2e75a10dd538
   languageName: node
   linkType: hard
-
-"gameplay_changes-b20603@workspace:addons/files/gameplay_changes":
-  version: 0.0.0-use.local
-  resolution: "gameplay_changes-b20603@workspace:addons/files/gameplay_changes"
-  languageName: unknown
-  linkType: soft
 
 "glob-parent@npm:^5.1.2":
   version: 5.1.2
