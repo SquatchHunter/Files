@@ -1,0 +1,6 @@
+pack.name=Anti Grief - Gameplay Changes - Bedrock Tweaks
+pack.description=Prevents mobs from destroying or interacting with blocks in the world
+
+
+
+bt.ag.misc.uninstall=§eUninstalled Correctly§r%1Remove the Anti Grief pack from Behaviour Packs to complete the uninstall.
