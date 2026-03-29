@@ -29,7 +29,7 @@ export const dropLoot = (entity: Entity, { damagingEntity }: EntityDamageSource)
 
 const spawnLoot = (entity: Entity, tool?: ItemStack): void => {
 	const lootManager = world.getLootTableManager();
-	const lootTable = lootManager.getLootTable('entities/bat_membranes');
+	const lootTable = lootManager.getLootTable('entities/phantom');
 	if (lootTable) {
 		const lootItems = lootManager.generateLootFromTable(lootTable, tool);
 		if (lootItems) {
