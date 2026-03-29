@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@bedrock-tweaks/glass-always-drops@workspace:addons/files/convenience/glass_always_drops":
+"@bedrock-tweaks/glass-always-drops@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@bedrock-tweaks/glass-always-drops@workspace:addons/files/convenience/glass_always_drops"
+  resolution: "@bedrock-tweaks/glass-always-drops@workspace:."
   dependencies:
     "@eslint/js": "npm:^9.39.4"
     "@eslint/json": "npm:^0.13.2"
@@ -27,29 +27,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@bedrock-tweaks/graves@workspace:addons/files/gameplay_changes/graves":
-  version: 0.0.0-use.local
-  resolution: "@bedrock-tweaks/graves@workspace:addons/files/gameplay_changes/graves"
-  dependencies:
-    "@eslint/js": "npm:^9.38.0"
-    "@eslint/json": "npm:^0.13.2"
-    "@minecraft/common": "npm:1.2.0"
-    "@minecraft/math": "npm:2.2.11"
-    "@minecraft/server": "npm:2.2.0"
-    "@minecraft/server-ui": "npm:^2.0.0"
-    "@minecraft/vanilla-data": "npm:1.21.114"
-    "@stylistic/eslint-config": "npm:^1.1.0"
-    "@stylistic/eslint-plugin": "npm:^5.4.0"
-    "@typescript-eslint/eslint-plugin": "npm:^8.46.1"
-    "@typescript-eslint/parser": "npm:^8.46.1"
-    eslint: "npm:^9.38.0"
-    eslint-plugin-minecraft-linting: "npm:^2.0.10"
-    typescript: "npm:^5.9.3"
-    typescript-eslint: "npm:^8.46.1"
-  languageName: unknown
-  linkType: soft
-
-"@eslint-community/eslint-utils@npm:^4.4.0, @eslint-community/eslint-utils@npm:^4.7.0, @eslint-community/eslint-utils@npm:^4.8.0, @eslint-community/eslint-utils@npm:^4.9.0":
+"@eslint-community/eslint-utils@npm:^4.4.0, @eslint-community/eslint-utils@npm:^4.7.0, @eslint-community/eslint-utils@npm:^4.8.0":
   version: 4.9.0
   resolution: "@eslint-community/eslint-utils@npm:4.9.0"
   dependencies:
@@ -71,7 +49,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint-community/regexpp@npm:^4.10.0, @eslint-community/regexpp@npm:^4.12.1":
+"@eslint-community/regexpp@npm:^4.12.1":
   version: 4.12.1
   resolution: "@eslint-community/regexpp@npm:4.12.1"
   checksum: 10c0/a03d98c246bcb9109aec2c08e4d10c8d010256538dcb3f56610191607214523d4fb1b00aa81df830b6dffb74c5fa0be03642513a289c567949d3e550ca11cdf6
@@ -186,7 +164,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:9.38.0, @eslint/js@npm:^9.38.0":
+"@eslint/js@npm:9.38.0":
   version: 9.38.0
   resolution: "@eslint/js@npm:9.38.0"
   checksum: 10c0/b4a0d561ab93f0b1bc6a3f5e3f83764c9cccade59f2c54f1d718c1dcc71ac4d1be97bef7300cca641932d72e7555c79a7bf07e4e4ce1d0a1ddccc84d6440d2a6
@@ -294,15 +272,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@minecraft/math@npm:2.2.11":
-  version: 2.2.11
-  resolution: "@minecraft/math@npm:2.2.11"
-  peerDependencies:
-    "@minecraft/server": ^1.15.0 || ^2.0.0
-  checksum: 10c0/28600e0d9933f9a0e0feb1d5fb338eb2d193e6ca7567eb8573f517cdabfa1609b52e4860f59dab66faece29f92120a5c981a6645efd73a0182d573668d595d7d
-  languageName: node
-  linkType: hard
-
 "@minecraft/math@npm:2.4.0":
   version: 2.4.0
   resolution: "@minecraft/math@npm:2.4.0"
@@ -322,16 +291,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@minecraft/server@npm:2.2.0, @minecraft/server@npm:^2.0.0":
-  version: 2.2.0
-  resolution: "@minecraft/server@npm:2.2.0"
-  peerDependencies:
-    "@minecraft/common": ^1.2.0
-    "@minecraft/vanilla-data": ">=1.20.70"
-  checksum: 10c0/16ea1fb69c7e322a1738b22cc3b183170f71da1f1a41e64b13e74f0135b1ec92d4ff991cacd2cc55b71849ad059827e56827b462f23cbe51e40f78e1b79ccdac
-  languageName: node
-  linkType: hard
-
 "@minecraft/server@npm:2.6.0":
   version: 2.6.0
   resolution: "@minecraft/server@npm:2.6.0"
@@ -342,10 +301,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@minecraft/vanilla-data@npm:1.21.114":
-  version: 1.21.114
-  resolution: "@minecraft/vanilla-data@npm:1.21.114"
-  checksum: 10c0/77a66fe4643ec08f0054dc9afe0f021d9250ea245c5ca5b2a0d3fda13df8bf5c40231ec5d759611a392a7dbff5f377945c66ad6594d840128dfa406f70cd95c2
+"@minecraft/server@npm:^2.0.0":
+  version: 2.2.0
+  resolution: "@minecraft/server@npm:2.2.0"
+  peerDependencies:
+    "@minecraft/common": ^1.2.0
+    "@minecraft/vanilla-data": ">=1.20.70"
+  checksum: 10c0/16ea1fb69c7e322a1738b22cc3b183170f71da1f1a41e64b13e74f0135b1ec92d4ff991cacd2cc55b71849ad059827e56827b462f23cbe51e40f78e1b79ccdac
   languageName: node
   linkType: hard
 
@@ -435,22 +397,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/eslint-plugin@npm:^5.4.0":
-  version: 5.5.0
-  resolution: "@stylistic/eslint-plugin@npm:5.5.0"
-  dependencies:
-    "@eslint-community/eslint-utils": "npm:^4.9.0"
-    "@typescript-eslint/types": "npm:^8.46.1"
-    eslint-visitor-keys: "npm:^4.2.1"
-    espree: "npm:^10.4.0"
-    estraverse: "npm:^5.3.0"
-    picomatch: "npm:^4.0.3"
-  peerDependencies:
-    eslint: ">=9.0.0"
-  checksum: 10c0/39e56c32064f9359d49ba2cd95ab7fbda6391cc30211ae214895269aca96793f72b3c0d866132f661cf6783e5c2e19a239b2eb57f9c0d392f3445e7b8294a9a0
-  languageName: node
-  linkType: hard
-
 "@types/estree@npm:^1.0.6":
   version: 1.0.8
   resolution: "@types/estree@npm:1.0.8"
@@ -469,27 +415,6 @@ __metadata:
   version: 7.7.1
   resolution: "@types/semver@npm:7.7.1"
   checksum: 10c0/c938aef3bf79a73f0f3f6037c16e2e759ff40c54122ddf0b2583703393d8d3127130823facb880e694caa324eb6845628186aac1997ee8b31dc2d18fafe26268
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/eslint-plugin@npm:8.46.1, @typescript-eslint/eslint-plugin@npm:^8.46.1":
-  version: 8.46.1
-  resolution: "@typescript-eslint/eslint-plugin@npm:8.46.1"
-  dependencies:
-    "@eslint-community/regexpp": "npm:^4.10.0"
-    "@typescript-eslint/scope-manager": "npm:8.46.1"
-    "@typescript-eslint/type-utils": "npm:8.46.1"
-    "@typescript-eslint/utils": "npm:8.46.1"
-    "@typescript-eslint/visitor-keys": "npm:8.46.1"
-    graphemer: "npm:^1.4.0"
-    ignore: "npm:^7.0.0"
-    natural-compare: "npm:^1.4.0"
-    ts-api-utils: "npm:^2.1.0"
-  peerDependencies:
-    "@typescript-eslint/parser": ^8.46.1
-    eslint: ^8.57.0 || ^9.0.0
-    typescript: ">=4.8.4 <6.0.0"
-  checksum: 10c0/7a269f7dc3f6d900b9a7caefc0ab455406aae7fc0c0a198b1f18623c1c47bd54c6769777b0d8a2ef2e674a60124470d85394feb5fae4991c84c6a37875f75410
   languageName: node
   linkType: hard
 
@@ -513,7 +438,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/parser@npm:8.46.1, @typescript-eslint/parser@npm:^8.46.1":
+"@typescript-eslint/parser@npm:8.46.1":
   version: 8.46.1
   resolution: "@typescript-eslint/parser@npm:8.46.1"
   dependencies:
@@ -633,22 +558,6 @@ __metadata:
   peerDependencies:
     typescript: ">=4.8.4 <6.0.0"
   checksum: 10c0/199dad2d96efc88ce94f5f3e12e97205537bf7a7152e56ef1d84dfbe7bd1babebea9b9f396c01b6c447505a4eb02c1cbbd2c28828c587b51b41b15d017a11d2f
-  languageName: node
-  linkType: hard
-
-"@typescript-eslint/type-utils@npm:8.46.1":
-  version: 8.46.1
-  resolution: "@typescript-eslint/type-utils@npm:8.46.1"
-  dependencies:
-    "@typescript-eslint/types": "npm:8.46.1"
-    "@typescript-eslint/typescript-estree": "npm:8.46.1"
-    "@typescript-eslint/utils": "npm:8.46.1"
-    debug: "npm:^4.3.4"
-    ts-api-utils: "npm:^2.1.0"
-  peerDependencies:
-    eslint: ^8.57.0 || ^9.0.0
-    typescript: ">=4.8.4 <6.0.0"
-  checksum: 10c0/bcd87755912ad626b496a78e5f3dd8182dd59e815683d6b82a3e9fffc1b52384abfbe4d3faf2ec9b15be67b88e5082a798f35f96624517f82a5026973c251074
   languageName: node
   linkType: hard
 
@@ -903,12 +812,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"bedrock-tweaks@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "bedrock-tweaks@workspace:."
-  languageName: unknown
-  linkType: soft
-
 "brace-expansion@npm:^1.1.7":
   version: 1.1.12
   resolution: "brace-expansion@npm:1.1.12"
@@ -986,12 +889,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"convenience-99136c@workspace:addons/files/convenience":
-  version: 0.0.0-use.local
-  resolution: "convenience-99136c@workspace:addons/files/convenience"
-  languageName: unknown
-  linkType: soft
-
 "cross-spawn@npm:^7.0.6":
   version: 7.0.6
   resolution: "cross-spawn@npm:7.0.6"
@@ -1038,18 +935,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-minecraft-linting@npm:^2.0.10":
-  version: 2.0.10
-  resolution: "eslint-plugin-minecraft-linting@npm:2.0.10"
-  dependencies:
-    "@typescript-eslint/rule-tester": "npm:^8.18.1"
-    "@typescript-eslint/utils": "npm:^8.18.1"
-    eslint: "npm:^9.17.0"
-    typescript: "npm:^5.6.0"
-  checksum: 10c0/5865a85a818bbd224eb3be56e95fe45b07b2674c323e9296753dcbf20b8b15e6049faa2bd31a246e64400db5d570612ade00b1a97dbab7fc2d28a5fef5165a81
-  languageName: node
-  linkType: hard
-
 "eslint-plugin-minecraft-linting@npm:^2.0.12":
   version: 2.0.12
   resolution: "eslint-plugin-minecraft-linting@npm:2.0.12"
@@ -1093,7 +978,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^9.17.0, eslint@npm:^9.38.0":
+"eslint@npm:^9.17.0":
   version: 9.38.0
   resolution: "eslint@npm:9.38.0"
   dependencies:
@@ -1345,12 +1230,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"gameplay_changes-b20603@workspace:addons/files/gameplay_changes":
-  version: 0.0.0-use.local
-  resolution: "gameplay_changes-b20603@workspace:addons/files/gameplay_changes"
-  languageName: unknown
-  linkType: soft
-
 "glob-parent@npm:^5.1.2":
   version: 5.1.2
   resolution: "glob-parent@npm:5.1.2"
@@ -1411,7 +1290,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ignore@npm:^7.0.0, ignore@npm:^7.0.5":
+"ignore@npm:^7.0.5":
   version: 7.0.5
   resolution: "ignore@npm:7.0.5"
   checksum: 10c0/ae00db89fe873064a093b8999fe4cc284b13ef2a178636211842cceb650b9c3e390d3339191acb145d81ed5379d2074840cf0c33a20bdbd6f32821f79eb4ad5d
@@ -1848,21 +1727,6 @@ __metadata:
   dependencies:
     prelude-ls: "npm:^1.2.1"
   checksum: 10c0/7b3fd0ed43891e2080bf0c5c504b418fbb3e5c7b9708d3d015037ba2e6323a28152ec163bcb65212741fa5d2022e3075ac3c76440dbd344c9035f818e8ecee58
-  languageName: node
-  linkType: hard
-
-"typescript-eslint@npm:^8.46.1":
-  version: 8.46.1
-  resolution: "typescript-eslint@npm:8.46.1"
-  dependencies:
-    "@typescript-eslint/eslint-plugin": "npm:8.46.1"
-    "@typescript-eslint/parser": "npm:8.46.1"
-    "@typescript-eslint/typescript-estree": "npm:8.46.1"
-    "@typescript-eslint/utils": "npm:8.46.1"
-  peerDependencies:
-    eslint: ^8.57.0 || ^9.0.0
-    typescript: ">=4.8.4 <6.0.0"
-  checksum: 10c0/002934d83eec1afcf94e9785399740efe39f1fe6538e469a01ed36c004303af8736e3aea9100c8733798fcb0d1e0301177bd70aa29e6d05d8cefbd8e18887ea6
   languageName: node
   linkType: hard
 

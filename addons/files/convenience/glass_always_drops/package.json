@@ -1,0 +1,31 @@
+{
+	"name": "@bedrock-tweaks/glass-always-drops",
+	"version": "1.21 - 1.0.0",
+	"description": "Why should you need an enchantment to pick up glass? Makes all types of glass drop without Silk Touch",
+	"private": true,
+	"scripts": {
+		"regolith-install": "regolith install-all",
+		"build": "regolith run build",
+		"dev": "regolith watch",
+		"lint": "npx eslint ."
+	},
+	"dependencies": {
+		"@minecraft/common": "1.2.0",
+		"@minecraft/math": "2.4.0",
+		"@minecraft/server": "2.6.0",
+		"@minecraft/server-ui": "^2.0.0",
+		"@minecraft/vanilla-data": "1.26.10",
+		"@stylistic/eslint-config": "^1.1.0"
+	},
+	"devDependencies": {
+		"@eslint/js": "^9.39.4",
+		"@eslint/json": "^0.13.2",
+		"@stylistic/eslint-plugin": "^5.10.0",
+		"@typescript-eslint/eslint-plugin": "^8.57.2",
+		"@typescript-eslint/parser": "^8.57.2",
+		"eslint": "^9.39.4",
+		"eslint-plugin-minecraft-linting": "^2.0.12",
+		"typescript": "^5.9.3",
+		"typescript-eslint": "^8.57.2"
+	}
+}
