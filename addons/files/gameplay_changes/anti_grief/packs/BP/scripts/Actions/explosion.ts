@@ -28,5 +28,3 @@ export const disableExplosion = async(explosion: ExplosionBeforeEvent): Promise<
 		dimension.playSound(AntiGriefSounds.explosion, loc);
 	}
 };
-
-// export const 

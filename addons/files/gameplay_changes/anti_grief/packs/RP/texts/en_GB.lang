@@ -1,6 +1,11 @@
-pack.name=Anti Grief - Gameplay Changes - Bedrock Tweaks
-pack.description=Prevents mobs from destroying or interacting with blocks in the world
+pack.name=Anti Creeper Grief - Gameplay Changes - Bedrock Tweaks
+pack.description=Prevents creepers from blowing up blocks, configurable players taking damage
 
+bt.ag.command.toggleDamage=§gCreeper§r to Player damage has been %s.
+bt.ag.state.enabled=§qEnabled§r
+bt.ag.state.disabled=§mDisabled§r
 
+bt.ag.misc.uninstall=§eUninstalled Correctly§r%1Remove the Anti Creeper Grief pack from Behaviour Packs to complete the uninstall.
 
-bt.ag.misc.uninstall=§eUninstalled Correctly§r%1Remove the Anti Grief pack from Behaviour Packs to complete the uninstall.
+## ITEMS
+item.bt_ag:grief_blocker=Grief Blocker§r

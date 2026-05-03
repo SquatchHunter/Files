@@ -1,0 +1,9 @@
+{
+	"resource_pack_name": "rp",
+	"texture_name": "atlas.items",
+	"texture_data": {
+		"grief_blocker": {
+			"textures": "textures/blocks/structure_void"
+		}
+	}
+}

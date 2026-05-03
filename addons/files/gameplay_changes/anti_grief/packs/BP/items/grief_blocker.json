@@ -1,0 +1,16 @@
+{
+	"format_version": "1.26.10",
+	"minecraft:item": {
+		"description": {
+			"identifier": "bt_ag:grief_blocker",
+			"menu_category": {
+				"category": "none",
+				"is_hidden_in_commands": false
+			}
+		},
+		"components": {
+			"minecraft:icon": "grief_blocker",
+			"minecraft:rarity": "epic"
+		}
+	}
+}

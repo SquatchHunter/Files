@@ -8,6 +8,7 @@
  * @see addons/files/gameplay_changes/graves/packs/BP/scripts/Models
  */
 
-export { AntiGriefSettings, AntiGriefDynamicProperties, AntiGriefDefaults } from './dynamicProperties';
-export { AntiGriefParticles } from './particles';
-export { AntiGriefSounds } from './sounds';
+export * from './commandEnums';
+export * from './dynamicProperties';
+export * from './particles';
+export * from './sounds';

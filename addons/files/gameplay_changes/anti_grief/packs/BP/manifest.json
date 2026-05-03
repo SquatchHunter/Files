@@ -12,8 +12,8 @@
 		],
 		"min_engine_version": [
 			1,
-			21,
-			50
+			26,
+			10
 		]
 	},
 	"modules": [
@@ -49,7 +49,7 @@
 		},
 		{
 			"module_name": "@minecraft/server",
-			"version": "2.5.0"
+			"version": "2.6.0"
 		}
 	],
 	"metadata": {

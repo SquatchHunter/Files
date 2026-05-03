@@ -38,7 +38,7 @@ export const toggleDamage = ({ sourceEntity }: CustomCommandOrigin, state: boole
 	});
 
 	if (sourceEntity instanceof Player) {
-		sourceEntity.sendMessage({ translate: 'bt.acg.command.toggleDamage', with: { rawtext: [{ translate: state ? 'bt.acg.state.enabled' : 'bt.acg.state.disabled' }] } });
+		sourceEntity.sendMessage({ translate: 'bt.ag.command.toggleDamage', with: { rawtext: [{ translate: state ? 'bt.ag.state.enabled' : 'bt.ag.state.disabled' }] } });
 	}
 
 	return { status: CustomCommandStatus.Success };

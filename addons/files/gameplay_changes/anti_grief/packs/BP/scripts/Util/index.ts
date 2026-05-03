@@ -5,5 +5,5 @@
  * If you think something might be of use could discuss in the Discord to add it to the template
  */
 
-export { getObjective, setObjective } from './scoreboard';
-export { getProperties, setProperties } from './dynamicProperties';
+export * from './scoreboard';
+export * from './dynamicProperties';

@@ -9,6 +9,7 @@ type PropertiesTypes = boolean | number | string | Vector3 | undefined;
 export enum AntiGriefDynamicProperties {
 	configVersion = 'bt:ag.version',
 	creepersDoDamage = 'bt:ag.creepersDoDamage',
+	endermanPickupBlocks = 'bt:ag.endermanPickupBlocks',
 	ghastsDoDamage = 'bt:ag.ghastsDoDamage',
 	withersDoDamage = 'bt:ag.withersDoDamage',
 	withersBreakBedrock = 'bt:ag.withersBreakBedrock'
@@ -19,6 +20,8 @@ export interface AntiGriefSettings {
 	configVersion: number;
 	// Indicates whether creeper explosions will damage players or not.
 	creepersDoDamage: boolean;
+	// Indicates whether endermen will pickup blocks or not.
+	endermanPickupBlocks: boolean;
 	ghastsDoDamage: boolean;
 	withersDoDamage: boolean;
 	withersBreakBedrock: boolean;
@@ -28,6 +31,7 @@ export interface AntiGriefSettings {
 export const AntiGriefDefaults: AntiGriefSettings = {
 	configVersion: 2, // always latest version number, depended on elsewhere.
 	creepersDoDamage: false,
+	endermanPickupBlocks: false,
 	ghastsDoDamage: false,
 	withersDoDamage: false,
 	withersBreakBedrock: false,
