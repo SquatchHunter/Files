@@ -1,8 +1,11 @@
 export enum AntiGriefModules {
-	CreeperGrief = 'creeperGrief', // done
-	// DragonGrief = 'dragonGrief', // not-possible
-	EndermanGrief = 'endermanGrief', // in-progress
-	// GhastGrief = 'ghastGrief', // not-started
-	WitherGrief = 'witherGrief', // not-started
-	// ZombiesGrief = 'zombiesGrief' // not-started
+	creepersGrief = 'creepersGrief',
+	creepersDoDamage = 'creepersDoDamage',
+	// dragonGrief = 'dragonGrief', // not-possible
+	endermenGrief = 'endermenGrief',
+	ghastsGrief = 'ghastsGrief',
+	ghastsDoDamage = 'ghastsDoDamage',
+	// witherGrief = 'withersGrief', // not-started
+	// withersBreakBedrock = 'withersBreakBedrock',
+	// zombiesGrief = 'zombiesGrief' // not-started
 }

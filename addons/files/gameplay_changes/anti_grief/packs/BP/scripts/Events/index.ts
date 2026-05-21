@@ -5,6 +5,7 @@
  * Events that have both "before" and "after" versions are organized within the same file.
  */
 
+import './entityHurt';
 import './entitySpawn';
 import './explosion';
 import './startup';

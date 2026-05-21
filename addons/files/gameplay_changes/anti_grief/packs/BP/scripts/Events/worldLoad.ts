@@ -1,6 +1,7 @@
 import { world } from '@minecraft/server';
-import { initializeSettings } from '../Actions';
+import { initializeSettings, iterateExistingEndermen } from '../Actions';
 
 world.afterEvents.worldLoad.subscribe((): void => {
-	initializeSettings();
+	void initializeSettings();
+	void iterateExistingEndermen();
 });

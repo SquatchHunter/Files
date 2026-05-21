@@ -5,6 +5,7 @@ import {
 	CustomCommandResult,
 	CustomCommandStatus
 } from '@minecraft/server';
+import { iterateExistingEndermen } from '../Actions';
 import { AntiGriefSettings, AntiGriefDynamicProperties, AntiGriefDefaults } from '../Models';
 import { getProperties, setProperties } from '../Util';
 
@@ -29,16 +30,20 @@ export const initializeSettings = (): void => {
 	}
 };
 
-export const toggleDamage = ({ sourceEntity }: CustomCommandOrigin, state: boolean | undefined): CustomCommandResult => {
+export const toggleSetting = ({ sourceEntity }: CustomCommandOrigin, setting: keyof AntiGriefSettings, state: boolean | undefined): CustomCommandResult => {
 	const settings = getSettings();
-	if (state === undefined) state = !settings.creepersDoDamage;
+	if (state === undefined) state = !settings[setting];
 	setSettings({
 		...settings,
-		creepersDoDamage: state,
+		[setting]: state,
 	});
 
 	if (sourceEntity instanceof Player) {
-		sourceEntity.sendMessage({ translate: 'bt.ag.command.toggleDamage', with: { rawtext: [{ translate: state ? 'bt.ag.state.enabled' : 'bt.ag.state.disabled' }] } });
+		sourceEntity.sendMessage({ translate: `bt.ag.command.${setting}`, with: { rawtext: [{ translate: state ? 'bt.ag.state.enabled' : 'bt.ag.state.disabled' }] } });
+	}
+
+	if (setting === 'endermenGrief') {
+		void iterateExistingEndermen();
 	}
 
 	return { status: CustomCommandStatus.Success };

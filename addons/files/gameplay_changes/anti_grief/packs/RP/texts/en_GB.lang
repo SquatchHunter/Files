@@ -1,11 +1,26 @@
-pack.name=Anti Creeper Grief - Gameplay Changes - Bedrock Tweaks
-pack.description=Prevents creepers from blowing up blocks, configurable players taking damage
+## Pack Meta
+pack.name=Anti Grief - Gameplay Changes - Bedrock Tweaks
+pack.description=Highly configurable Anti Grief pack featuring options for Creepers, Ender Dragon, Endermen, Ghasts and Withers.
 
-bt.ag.command.toggleDamage=§gCreeper§r to Player damage has been %s.
+## Command Outputs
+bt.ag.command.creepersGrief=§gCreeper§r griefing: %s.
+bt.ag.command.creepersDoDamage=§gCreepers§r do damage to entities: %s.
+bt.ag.command.endermenGrief=§uEnderman§r griefing: %s.
+bt.ag.command.ghastsGrief=§gGhast§r griefing: %s.
+bt.ag.command.ghastsDoDamage=§gGhast§r do damage to entities: %s.
+bt.ag.command.withersGrief=§gWither§r griefing: %s.
+bt.ag.command.withersBreakBedrock=§gWither§r can break bedrock: %s.
+bt.ag.command.dump=Dumping the current settings to console...	## unused currently
+bt.ag.command.dumpDisabled=Debugging is not enabled, please report any issues to the discord first.
+## Status Messages
 bt.ag.state.enabled=§qEnabled§r
 bt.ag.state.disabled=§mDisabled§r
-
+## Misc
 bt.ag.misc.uninstall=§eUninstalled Correctly§r%1Remove the Anti Creeper Grief pack from Behaviour Packs to complete the uninstall.
 
 ## ITEMS
 item.bt_ag:grief_blocker=Grief Blocker§r
+
+## DEBUG!
+bt.ag.debug.toggleEndermen=%1 §uEnderman§r... (%2/%3)
+bt.ag.debug.dump=§a-=-=-=-=-=-=-=-=-=-=-§r%1§6-= Anti Grief Settings =-§r%1§a- - - - - - - - - - - - -§r%1%2%1§a-=-=-=-=-=-=-=-=-=-=-§r

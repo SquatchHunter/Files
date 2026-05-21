@@ -1,2 +1,3 @@
-pack.name=Anti Creeper Grief - Gameplay Changes - Bedrock Tweaks
-pack.description=Prevents creepers from blowing up blocks, configurable players taking damage
+## Pack Meta
+pack.name=Anti Grief - Gameplay Changes - Bedrock Tweaks
+pack.description=Highly configurable Anti Grief pack featuring options for Creepers, Ender Dragon, Endermen, Ghasts and Withers.
