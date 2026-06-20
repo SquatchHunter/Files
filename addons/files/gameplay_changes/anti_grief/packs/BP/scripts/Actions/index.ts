@@ -5,8 +5,9 @@
  */
 
 export * from './creeper';
-export * from './debug';
+// export * from './debug';
 export * from './enderman';
 export * from './ghast';
 export * from './settings';
 export * from './uninstall';
+export * from './wither';

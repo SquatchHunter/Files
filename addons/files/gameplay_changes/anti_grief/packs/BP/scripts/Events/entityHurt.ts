@@ -6,6 +6,6 @@ import {
 import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
 import { disableFireballDamage } from '../Actions';
 
-world.beforeEvents.entityHurt.subscribe((eventData: EntityHurtBeforeEvent): void => {
-	void disableFireballDamage(eventData);
+world.beforeEvents.entityHurt.subscribe((entityHurtEvent: EntityHurtBeforeEvent): void => {
+	void disableFireballDamage(entityHurtEvent);
 }, { allowedDamageCauses: [EntityDamageCause.projectile], entityFilter: { type: MinecraftEntityTypes.Player } });

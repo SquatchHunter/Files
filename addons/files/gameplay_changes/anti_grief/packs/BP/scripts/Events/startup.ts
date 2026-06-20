@@ -5,32 +5,32 @@ import {
 	CommandPermissionLevel,
 	CustomCommandParamType
 } from '@minecraft/server';
-import { toggleSetting, uninstall, dumpSettings } from '../Actions';
-import { AntiGriefModules } from '../Models';
+import { handleSettings, uninstall } from '../Actions';
+import { AntiGriefDynamicProperties } from '../Models';
 
-system.beforeEvents.startup.subscribe((init: StartupEvent) => {
-	const commandRegistry = init.customCommandRegistry;
+system.beforeEvents.startup.subscribe((startupEvent: StartupEvent) => {
+	const commandRegistry = startupEvent.customCommandRegistry;
 
-	commandRegistry.registerEnum('bt_ag:modules', Object.values(AntiGriefModules));
+	commandRegistry.registerEnum('bt_ag:modules', Object.keys(AntiGriefDynamicProperties).filter(key => key !== 'configVersion' && key !== 'debugging')); // this is BAD
 	const antigriefSettingsCommand: CustomCommand = {
 		name: 'bt_ag:antigrief',
 		description: 'Interacts with AntiGrief',
 		permissionLevel: CommandPermissionLevel.Admin,
 		cheatsRequired: false,
 		mandatoryParameters: [
+		],
+		optionalParameters: [
 			{
 				name: 'bt_ag:modules',
 				type: CustomCommandParamType.Enum,
 			},
-		],
-		optionalParameters: [
 			{
 				name: 'state',
 				type: CustomCommandParamType.Boolean,
 			},
 		],
 	};
-	commandRegistry.registerCommand(antigriefSettingsCommand, toggleSetting);
+	commandRegistry.registerCommand(antigriefSettingsCommand, handleSettings);
 
 	const uninstallCommand: CustomCommand = {
 		name: 'bt_ag:uninstall',
@@ -39,13 +39,4 @@ system.beforeEvents.startup.subscribe((init: StartupEvent) => {
 		cheatsRequired: false,
 	};
 	commandRegistry.registerCommand(uninstallCommand, uninstall);
-
-	// sneaky sneaky debugging commands
-	const dumpSettingsCommand: CustomCommand = {
-		name: 'bt_ag:dump',
-		description: 'Dumps current AntiGrief settings to chat',
-		permissionLevel: CommandPermissionLevel.Admin,
-		cheatsRequired: false,
-	};
-	commandRegistry.registerCommand(dumpSettingsCommand, dumpSettings);
 });

@@ -1,4 +1,3 @@
-// mc-disable molang.you
 {
     "pools": [
         {
@@ -13,14 +12,17 @@
 						{
 							"function": "set_lore",
 							"lore": [
-								"You shouldnt have this...",
-								"Would you kindly, let us know in the Discord."
+								"§rYou shouldn't have this...",
+								"§r§oWould you kindly§r, let us know in the Discord."
 							]
 						},
 						{
 							"function": "specific_enchants",
 							"enchants": [
-								"vanishing"
+								{
+									"id": "vanishing",
+									"level": 1
+								}
 							]
 						}
 					]

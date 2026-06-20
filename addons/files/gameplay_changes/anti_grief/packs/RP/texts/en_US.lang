@@ -5,7 +5,7 @@ pack.description=Highly configurable Anti Grief pack featuring options for Creep
 ## Command Outputs
 bt.ag.command.creepersGrief=§gCreeper§r griefing: %s.
 bt.ag.command.creepersDoDamage=§gCreepers§r do damage to entities: %s.
-bt.ag.command.endermenGrief=§uEnderman§r griefing: %s.
+bt.ag.command.endermenGrief=§gEnderman§r griefing: %s.
 bt.ag.command.ghastsGrief=§gGhast§r griefing: %s.
 bt.ag.command.ghastsDoDamage=§gGhast§r do damage to entities: %s.
 bt.ag.command.withersGrief=§gWither§r griefing: %s.

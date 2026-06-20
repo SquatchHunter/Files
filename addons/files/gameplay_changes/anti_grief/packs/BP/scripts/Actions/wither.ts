@@ -7,21 +7,21 @@ import {
 	AntiGriefParticles,
 	AntiGriefSounds
 } from '../Models';
-import { getDynProps } from '../Util';
+import { getDynProp } from '../Util';
 
-export const disableCreeperExplosion = (explosionEvent: ExplosionBeforeEvent): void => {
+export const disableWitherExplosion = (explosionEvent: ExplosionBeforeEvent): void => {
 	const { dimension, source } = explosionEvent;
-	const { creepersGrief, creepersDoDamage } = getDynProps(['creepersGrief', 'creepersDoDamage']);
-	if (!source?.isValid) return;
-	// TODO: add option for mob griefing that doesnt do damage (entityHurt.ts)
-	if (creepersGrief) return;
+	const withersGrief = getDynProp('withersGrief');
+	const withersDoDamage = getDynProp('withersDoDamage');
 
-	if (creepersDoDamage) {
-		// creeper will do damage to entities
+	if (!source?.isValid) return;
+	if (withersGrief) return;
+
+	if (withersDoDamage) {
+		// withers will do damage to entities
 		explosionEvent.setImpactedBlocks([]);
 	} else {
-		// TODO: migrate to entityHurt.ts (see above condition)
-		// creeper will NOT do damage to entities
+		// withers will NOT do damage to entities
 		explosionEvent.cancel = true;
 		const loc: Vector3 = source.location;
 		system.run(() => {

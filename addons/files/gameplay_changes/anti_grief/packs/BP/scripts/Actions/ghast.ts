@@ -1,23 +1,25 @@
 import { system, EntityHurtBeforeEvent, ExplosionBeforeEvent } from '@minecraft/server';
-import { getSettings } from '../Actions';
+import { MinecraftEntityTypes } from '@minecraft/vanilla-data';
 import {
-	AntiGriefSettings,
+	AntiGriefObservables,
 	AntiGriefParticles,
 	AntiGriefSounds
 } from '../Models';
+import { getDynProp } from '../Util';
 
-export const disableGhastExplosion = (explosion: ExplosionBeforeEvent): void => {
-	const { dimension, source } = explosion;
-	const { ghastsGrief, ghastsDoDamage }: AntiGriefSettings = getSettings();
+export const disableGhastExplosion = (explosionEvent: ExplosionBeforeEvent): void => {
+	const { dimension, source } = explosionEvent;
+	const ghastsGrief = getDynProp('ghastsGrief');
+	const ghastsDoDamage = getDynProp('ghastsDoDamage');
 
 	if (!source?.isValid) return;
 	if (ghastsGrief) return;
 	if (ghastsDoDamage) {
 		// ghast will do damage to entities
-		explosion.setImpactedBlocks([]);
+		explosionEvent.setImpactedBlocks([]);
 	} else {
 		// ghast will NOT do damage to entities
-		explosion.cancel = true;
+		explosionEvent.cancel = true;
 		const loc = source.location;
 		system.run(() => {
 			dimension.spawnParticle(AntiGriefParticles.explosion, loc);
@@ -26,10 +28,10 @@ export const disableGhastExplosion = (explosion: ExplosionBeforeEvent): void => 
 	}
 };
 
-export const disableFireballDamage = (eventData: EntityHurtBeforeEvent): void => {
-	const { ghastsDoDamage }: AntiGriefSettings = getSettings();
-
+export const disableFireballDamage = (entityHurtEvent: EntityHurtBeforeEvent): void => {
+	const ghastsDoDamage = AntiGriefObservables.ghastsDoDamage.getData();
+	if (!entityHurtEvent.damageSource?.damagingEntity?.matches({ type: MinecraftEntityTypes.Ghast })) return;
 	if (!ghastsDoDamage) {
-		eventData.cancel = true;
+		entityHurtEvent.cancel = true;
 	}
 };

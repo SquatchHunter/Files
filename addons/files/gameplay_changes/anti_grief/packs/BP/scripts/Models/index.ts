@@ -8,7 +8,7 @@
  * @see addons/files/gameplay_changes/graves/packs/BP/scripts/Models
  */
 
-export * from './commandEnums';
 export * from './dynamicProperties';
+export * from './observables';
 export * from './particles';
 export * from './sounds';

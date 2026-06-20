@@ -1,66 +1,81 @@
 import {
+	system,
 	world,
 	Player,
 	CustomCommandOrigin,
 	CustomCommandResult,
 	CustomCommandStatus
 } from '@minecraft/server';
-import { iterateExistingEndermen } from '../Actions';
-import { AntiGriefSettings, AntiGriefDynamicProperties, AntiGriefDefaults } from '../Models';
-import { getProperties, setProperties } from '../Util';
+import {
+	ObservableString,
+	ObservableNumber,
+	ObservableBoolean
+} from '@minecraft/server-ui';
+import { AntiGriefObservables, AntiGriefObservableSettings, AntiGriefDefaults } from '../Models';
+import { openConfig } from '../UI';
+import { getDynProp, getDynProps, AntiGriefPropertyKey } from '../Util';
 
-/**
- * * Initializes the general addon settings for AntiGrief if they are not already initialized.
- * * Sets default values for them and ensures required properties are set.
- */
 export const initializeSettings = (): void => {
-	let settings = getSettings();
-	// mitigation system for config updates.
-	switch (settings?.configVersion) {
-		case 1: {
-			const temp = Object.assign({}, AntiGriefDefaults, settings);
-			settings = temp;
-		}
-		case -1: // never a valid version and always last for fallthrough.
-			settings.configVersion = AntiGriefDefaults.configVersion; // use latest version number, set in the defaults object in ../Models/dynamicProperties.ts
-			void setSettings(settings);
+	console.log('[AntiGrief] Initializing settings...');
+	// clean up any old versions of settings kek
+	const version = getDynProp('configVersion');
+	switch (version) {
+		case 1:
+		case 2:
+		case 3:
+			world.clearDynamicProperties();
+		case 4:
+			const advanced = world.getDynamicProperty('bt:ag.debugging') as boolean | undefined;
+			AntiGriefObservables.advancedSettings.setData(advanced ?? false);
+		default:
+			// always do this
+			AntiGriefObservables.configVersion.setData(AntiGriefDefaults.configVersion);
 			break;
-		case undefined:
-			void setSettings(AntiGriefDefaults);
 	}
 };
 
-export const toggleSetting = ({ sourceEntity }: CustomCommandOrigin, setting: keyof AntiGriefSettings, state: boolean | undefined): CustomCommandResult => {
-	const settings = getSettings();
-	if (state === undefined) state = !settings[setting];
-	setSettings({
-		...settings,
-		[setting]: state,
-	});
+export const initializeObservables = (): void => {
+	const savedSettings = getDynProps(Object.keys(AntiGriefObservables) as AntiGriefPropertyKey[]);
 
+	for (const settingKey of Object.keys(AntiGriefObservables) as (keyof AntiGriefObservableSettings)[]) {
+		const observable = AntiGriefObservables[settingKey];
+		const savedValue = savedSettings[settingKey as AntiGriefPropertyKey];
+		if (!observable || savedValue === undefined) continue;
+
+		if (observable instanceof ObservableBoolean && typeof savedValue === 'boolean') {
+			void observable.setData(savedValue);
+		} else if (observable instanceof ObservableNumber && typeof savedValue === 'number') {
+			void observable.setData(savedValue);
+		} else if (observable instanceof ObservableString && typeof savedValue === 'string') {
+			void observable.setData(savedValue);
+		}
+	}
+};
+
+export const toggleSetting = ({ sourceEntity }: CustomCommandOrigin, setting: keyof AntiGriefObservableSettings, state: boolean | undefined): CustomCommandResult => {
+	const observable = AntiGriefObservables[setting] as ObservableBoolean;
+	if (state === undefined) {
+		state = !observable.getData();
+	}
+	void observable.setData(state);
 	if (sourceEntity instanceof Player) {
 		sourceEntity.sendMessage({ translate: `bt.ag.command.${setting}`, with: { rawtext: [{ translate: state ? 'bt.ag.state.enabled' : 'bt.ag.state.disabled' }] } });
-	}
-
-	if (setting === 'endermenGrief') {
-		void iterateExistingEndermen();
 	}
 
 	return { status: CustomCommandStatus.Success };
 };
 
-/**
- * Retrieves the current addon settings from the world properties.
- *
- * @returns {AntiGriefSettings} - The current AntiGrief settings
- */
-export const getSettings = (): AntiGriefSettings => getProperties<AntiGriefSettings>(world, AntiGriefDynamicProperties);
+export const handleSettings = (origin: CustomCommandOrigin, setting: keyof AntiGriefObservableSettings | undefined, state: boolean | undefined): CustomCommandResult => {
+	system.run(() => {
+		if (setting === undefined) {
+			if (!(origin.sourceEntity instanceof Player)) return { status: CustomCommandStatus.Failure };
+			void openConfig(origin.sourceEntity);
+		} else {
+			toggleSetting(origin, setting, state);
+		}
 
-/**
- * Updates the addon settings in the world properties.
- *
- * @param {AntiGriefSettings} antiGriefSettings - The updated settings to be saved.
- */
-export const setSettings = (antiGriefSettings: AntiGriefSettings): void => {
-	setProperties(world, AntiGriefDynamicProperties, antiGriefSettings);
+		return { status: CustomCommandStatus.Success };
+	});
+
+	return { status: CustomCommandStatus.Success };
 };

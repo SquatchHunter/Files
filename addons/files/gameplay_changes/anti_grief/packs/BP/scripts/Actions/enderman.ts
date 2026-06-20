@@ -7,25 +7,25 @@ import {
 	Dimension,
 	Entity
 } from '@minecraft/server';
-import { getSettings } from '.';
-import { AntiGriefSettings } from '../Models';
+import { getDynProps } from '../Util';
 
-export const toggleEnderman = (entity: Entity): void => {
-	const { endermenGrief }: AntiGriefSettings = getSettings();
-	if (endermenGrief) {
-		entity.runCommand('replaceitem entity @s slot.weapon.mainhand 0 air');
-	} else {
-		entity.runCommand('loot replace entity @s slot.weapon.mainhand 0 loot grief_blocker');
-	}
-};
+export function* toggleEnderman(entities: Entity[]): Generator<void, void, void> {
+	const { endermenGrief, advAnnounceEndermen } = getDynProps(['endermenGrief', 'advAnnounceEndermen']);
 
-function* toggleAllEndermen(entities: Entity[]): Generator<void, void, void> {
-	const { endermenGrief, debugging }: AntiGriefSettings = getSettings();
+	for (const [index, entity] of entities.entries()) {
+		if (!entity.isValid) {
+			// Debug log for invalid entity
+			if (advAnnounceEndermen) console.log(`${entity.typeId} is no longer valid. Skipping...`);
 
-	for (let index = 0; index < entities.length; index++) {
-		toggleEnderman(entities[index]);
-		if (debugging) {
-			console.log({
+			yield;
+		}
+		if (endermenGrief) {
+			entity.runCommand('replaceitem entity @s slot.weapon.mainhand 0 air');
+		} else {
+			entity.runCommand('loot replace entity @s slot.weapon.mainhand 0 loot grief_blocker');
+		}
+		if (advAnnounceEndermen) {
+			world.sendMessage({
 				translate: 'bt.ag.debug.toggleEndermen',
 				with: { rawtext: [{ translate: endermenGrief ? 'bt.ag.state.enabled' : 'bt.ag.state.disabled' }, { text: `${index + 1}` }, { text: `${entities.length}` }] },
 			});
@@ -37,17 +37,17 @@ function* toggleAllEndermen(entities: Entity[]): Generator<void, void, void> {
 export const iterateExistingEndermen = (): void => {
 	// get all dimensions
 	const dimensionsList: DimensionType[] = DimensionTypes.getAll();
-	var dimensions: Dimension[] = [];
+	const dimensions: Dimension[] = [];
 	// convert all dimensions to dimension objects
 	for (const dimension of dimensionsList) {
 		dimensions.push(world.getDimension(dimension.typeId));
 	}
 	// repeat for endermen
-	var endermen: Entity[] = [];
+	const endermen: Entity[] = [];
 	for (const dimension of dimensions) {
 		endermen.push(...dimension.getEntities({ type: 'minecraft:enderman' }));
 	}
 
 	// lazily toggle all endermen
-	system.runJob(toggleAllEndermen(endermen));
+	system.runJob(toggleEnderman(endermen));
 };

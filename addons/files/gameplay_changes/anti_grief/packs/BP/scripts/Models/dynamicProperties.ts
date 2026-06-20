@@ -14,8 +14,11 @@ export enum AntiGriefDynamicProperties {
 	ghastsGrief = 'bt:ag.ghastsGrief',
 	ghastsDoDamage = 'bt:ag.ghastsDoDamage',
 	withersGrief = 'bt:ag.withersGrief',
+	withersDoDamage = 'bt:ag.withersDoDamage',
 	withersBreakBedrock = 'bt:ag.withersBreakBedrock',
-	debugging = 'bt:ag.debugging' // for testing purposes, not used in actual settings
+	advancedSettings = 'bt:ag.advancedSettings',
+	advAnnounceState = 'bt:ag.advAnnounceState',
+	advAnnounceEndermen = 'bt:ag.advAnnounceEndermen'
 }
 
 export interface AntiGriefSettings {
@@ -26,19 +29,25 @@ export interface AntiGriefSettings {
 	ghastsGrief: boolean;
 	ghastsDoDamage: boolean;
 	withersGrief: boolean;
+	withersDoDamage: boolean;
 	withersBreakBedrock: boolean;
-	debugging: boolean; // for testing purposes, not used in actual settings
-	[key: string]: PropertiesTypes; // Allows any string key with PropertiesTypes values
+	advancedSettings: boolean;
+	advAnnounceState: boolean;
+	advAnnounceEndermen: boolean;
+	[key: string]: PropertiesTypes;
 }
 
 export const AntiGriefDefaults: AntiGriefSettings = {
-	configVersion: 2, // always latest version number, depended on elsewhere.
+	configVersion: 4, // always latest version number, depended on elsewhere.
 	creepersGrief: false,
-	creepersDoDamage: false,
+	creepersDoDamage: true,
 	endermenGrief: false,
 	ghastsGrief: false,
-	ghastsDoDamage: false,
-	withersGrief: false,
-	withersBreakBedrock: false,
-	debugging: true,
+	ghastsDoDamage: true,
+	withersGrief: true,
+	withersDoDamage: true,
+	withersBreakBedrock: true,
+	advancedSettings: false,
+	advAnnounceState: false,
+	advAnnounceEndermen: false,
 };

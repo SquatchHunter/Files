@@ -1,6 +1,70 @@
-import { Entity, Vector3, World } from '@minecraft/server';
+import { Entity, Vector3, World, world } from '@minecraft/server';
+import { AntiGriefDynamicProperties, AntiGriefDefaults } from '../Models';
 
 type PropertiesTypes = boolean | number | string | Vector3 | undefined;
+
+export type AntiGriefPropertyKey = keyof typeof AntiGriefDefaults & keyof typeof AntiGriefDynamicProperties;
+
+function isVector3(value: unknown): value is Vector3 {
+	return (
+		typeof value === 'object' &&
+		value !== null &&
+		'x' in value &&
+		'y' in value &&
+		'z' in value
+	);
+}
+
+function isValidDynamicPropertyValue<T extends PropertiesTypes>(
+	value: unknown,
+	expected: T,
+): value is T {
+	if (typeof expected === 'boolean') {
+		return typeof value === 'boolean';
+	}
+
+	if (typeof expected === 'number') {
+		return typeof value === 'number' && Number.isFinite(value);
+	}
+
+	if (typeof expected === 'string') {
+		return typeof value === 'string';
+	}
+
+	if (typeof expected === 'undefined') {
+		return value === undefined;
+	}
+
+	if (isVector3(expected)) {
+		return isVector3(value);
+	}
+
+	return false;
+}
+
+export function getDynProp<K extends AntiGriefPropertyKey>(
+	property: K,
+	from: World | Entity = world,
+	fallback: (typeof AntiGriefDefaults)[K] = AntiGriefDefaults[property],
+): (typeof AntiGriefDefaults)[K] {
+	const propertyId = AntiGriefDynamicProperties[property];
+	const value = from.getDynamicProperty(propertyId);
+
+	if (isValidDynamicPropertyValue(value, fallback)) {
+		return value;
+	}
+
+	return fallback;
+}
+
+export function getDynProps<T extends AntiGriefPropertyKey[]>(
+	properties: T,
+	from: World | Entity = world,
+): { [K in T[number]]: (typeof AntiGriefDefaults)[K] } {
+	return Object.fromEntries(
+		properties.map(property => [property, getDynProp(property, from)]),
+	) as { [K in T[number]]: (typeof AntiGriefDefaults)[K] };
+}
 
 /**
  * Converts the properties of the world or an entity from the enumType to a JS Object of type T

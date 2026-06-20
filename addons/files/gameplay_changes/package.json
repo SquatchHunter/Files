@@ -1,7 +1,6 @@
 {
 	"private": true,
 	"workspaces": [
-		"anti_grief",
-		"graves"
+		"anti_grief"
 	]
 }
