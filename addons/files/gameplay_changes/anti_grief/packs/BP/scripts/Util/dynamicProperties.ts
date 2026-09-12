@@ -62,8 +62,21 @@ export function getDynProps<T extends AntiGriefPropertyKey[]>(
 	from: World | Entity = world,
 ): { [K in T[number]]: (typeof AntiGriefDefaults)[K] } {
 	return Object.fromEntries(
-		properties.map(property => [property, getDynProp(property, from)]),
+		properties.map(property => [
+			property,
+			getDynProp(property, from),
+		]),
 	) as { [K in T[number]]: (typeof AntiGriefDefaults)[K] };
+}
+
+export function getAllDynProps(
+	from: World | Entity = world,
+): typeof AntiGriefDefaults {
+	const allProperties = Object.keys(
+		AntiGriefDynamicProperties,
+	) as AntiGriefPropertyKey[];
+
+	return getDynProps(allProperties, from);
 }
 
 /**

@@ -5,5 +5,6 @@
  * If you think something might be of use could discuss in the Discord to add it to the template
  */
 
-export * from './scoreboard';
 export * from './dynamicProperties';
+export * from './player';
+export * from './scoreboard';

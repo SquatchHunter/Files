@@ -25,5 +25,5 @@ bt.ag.misc.uninstall=§eUninstalled Correctly§r%1Remove the Anti Creeper Grief 
 item.bt_ag:grief_blocker=Grief Blocker§r
 
 ## DEBUG!
+bt.ag.debug.invalidEnderman=§uEnderman§r is invalid, skipping... (%1/%2)
 bt.ag.debug.toggleEndermen=%1 §uEnderman§r... (%2/%3)
-bt.ag.debug.dump=§a-=-=-=-=-=-=-=-=-=-=-§r%1§6-= Anti Grief Settings =-§r%1§a- - - - - - - - - - - - -§r%1%2%1§a-=-=-=-=-=-=-=-=-=-=-§r

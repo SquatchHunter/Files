@@ -1,4 +1,3 @@
-/* eslint-disable @minecraft/avoid-unnecessary-command */
 import {
 	system,
 	world,
@@ -7,28 +6,63 @@ import {
 	Dimension,
 	Entity
 } from '@minecraft/server';
-import { getDynProps } from '../Util';
+import { getDynProps, getOperators } from '../Util';
 
-export function* toggleEnderman(entities: Entity[]): Generator<void, void, void> {
+export function* toggleEnderman(entities: Entity[]): Generator<void> {
 	const { endermenGrief, advAnnounceEndermen } = getDynProps(['endermenGrief', 'advAnnounceEndermen']);
+	const operators = getOperators();
 
 	for (const [index, entity] of entities.entries()) {
 		if (!entity.isValid) {
-			// Debug log for invalid entity
-			if (advAnnounceEndermen) console.log(`${entity.typeId} is no longer valid. Skipping...`);
+			switch (advAnnounceEndermen) {
+				case 1:
+					for (const op of operators) {
+						try {
+							op.sendMessage({
+								translate: 'bt.ag.debug.invalidEnderman', with: {
+									rawtext: [
+										{ text: `${index + 1}` },
+										{ text: `${entities.length}` },
+									],
+								},
+							});
+						} catch {} // do nothing if the send message fails, likely means player left mid loop
+					}
+					break;
+				case 2:
+					console.warn(`[AntiGrief] Enderman: ${index + 1}/${entities.length} is no longer valid, skipping.`);
+					break;
+			}
 
 			yield;
+			continue;
 		}
-		if (endermenGrief) {
-			entity.runCommand('replaceitem entity @s slot.weapon.mainhand 0 air');
-		} else {
-			entity.runCommand('loot replace entity @s slot.weapon.mainhand 0 loot grief_blocker');
-		}
-		if (advAnnounceEndermen) {
-			world.sendMessage({
-				translate: 'bt.ag.debug.toggleEndermen',
-				with: { rawtext: [{ translate: endermenGrief ? 'bt.ag.state.enabled' : 'bt.ag.state.disabled' }, { text: `${index + 1}` }, { text: `${entities.length}` }] },
-			});
+
+		const command = endermenGrief
+			? 'replaceitem entity @s slot.weapon.mainhand 0 air'
+			: 'loot replace entity @s slot.weapon.mainhand 0 loot grief_blocker';
+
+		entity.runCommand(command);
+
+		switch (advAnnounceEndermen) {
+			case 1:
+				for (const op of operators) {
+					try {
+						op.sendMessage({
+							translate: 'bt.ag.debug.toggleEndermen', with: {
+								rawtext: [
+									{ translate: endermenGrief ? 'bt.ag.state.enabled' : 'bt.ag.state.disabled' },
+									{ text: `${index + 1}` },
+									{ text: `${entities.length}` },
+								],
+							},
+						});
+					} catch {} // do nothing if the send message fails, likely means player left mid loop
+				}
+				break;
+			case 2:
+				console.log(`[AntiGrief] Enderman: ${endermenGrief ? 'Enabled' : 'Disabled'} {${index + 1}/${entities.length}}`);
+				break;
 		}
 		yield;
 	}

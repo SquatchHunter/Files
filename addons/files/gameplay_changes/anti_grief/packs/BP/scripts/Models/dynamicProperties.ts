@@ -33,12 +33,12 @@ export interface AntiGriefSettings {
 	withersBreakBedrock: boolean;
 	advancedSettings: boolean;
 	advAnnounceState: boolean;
-	advAnnounceEndermen: boolean;
+	advAnnounceEndermen: number;
 	[key: string]: PropertiesTypes;
 }
 
 export const AntiGriefDefaults: AntiGriefSettings = {
-	configVersion: 4, // always latest version number, depended on elsewhere.
+	configVersion: 5, // always latest version number, depended on elsewhere.
 	creepersGrief: false,
 	creepersDoDamage: true,
 	endermenGrief: false,
@@ -49,5 +49,5 @@ export const AntiGriefDefaults: AntiGriefSettings = {
 	withersBreakBedrock: true,
 	advancedSettings: false,
 	advAnnounceState: false,
-	advAnnounceEndermen: false,
+	advAnnounceEndermen: 0,
 };

@@ -23,12 +23,15 @@ export const initializeSettings = (): void => {
 		case 1:
 		case 2:
 		case 3:
+			console.log('[AntiGrief] Migrating settings from version 1-3 to 4...');
+			// reset all settings to default values
 			world.clearDynamicProperties();
 		case 4:
-			const advanced = world.getDynamicProperty('bt:ag.debugging') as boolean | undefined;
-			AntiGriefObservables.advancedSettings.setData(advanced ?? false);
+			console.log('[AntiGrief] Migrating settings from version 4 to 5...');
+			const { advAnnounceEndermen } = getDynProps(['advAnnounceEndermen']);
+			if (advAnnounceEndermen) AntiGriefObservables.advAnnounceEndermen.setData(1);
 		default:
-			// always do this
+			console.log('[AntiGrief] Migration complete');
 			AntiGriefObservables.configVersion.setData(AntiGriefDefaults.configVersion);
 			break;
 	}

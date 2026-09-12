@@ -1,8 +1,8 @@
-import { system } from '@minecraft/server';
+import { system, world, Player } from '@minecraft/server';
 import { CustomForm } from '@minecraft/server-ui';
-import { Player } from '@minecraft/server';
-import { AntiGriefObservables as settings } from '../Models';
 import { iterateExistingEndermen } from '../Actions';
+import { AntiGriefDefaults, AntiGriefObservables as settings } from '../Models';
+import { getAllDynProps } from '../Util';
 
 export const openConfig = (player: Player): void => {
 	system.run(() => {
@@ -26,23 +26,22 @@ const configFlow = (player: Player): void => {
 		.label('Only touch these settings if you know what you are doing.', { visible: settings.advancedSettings })
 		.spacer()
 		.toggle('Announce State', settings.advAnnounceState, { description: 'Whether to announce the state of the anti-grief system.', visible: settings.advancedSettings })
-		.toggle('Announce Endermen', settings.advAnnounceEndermen, { description: 'Whether to announce the progress of IterateEndermen function.', visible: settings.advancedSettings })
+		.dropdown('Announce Endermen', settings.advAnnounceEndermen, [{ label: 'None', value: 0, description: 'Do not Announce' }, { label: 'Chat', value: 1 }, { label: 'Console', value: 2 }], { description: 'Select where to announce the IterateEndermen function.', visible: settings.advancedSettings })
 		.button('Force Run Anti Endermen', () => {
 			void iterateExistingEndermen();
 		}, { visible: settings.advancedSettings })
 		.button('Dump Settings to Console', () => {
+			const properties = getAllDynProps(world);
 			let text = '§6-= Anti Grief Settings =-§r';
 			for (const [key, observable] of Object.entries(settings)) {
-				if (observable?.getData) {
-					text += `\n  ${key}: ${observable.getData()}`;
-				}
+				text += `\n  ${key}: §4O:${observable?.getData()}§r §5[DP:${properties[key] ?? 'undefined'}]§r`;
 			}
 			console.log(text);
 		}, { visible: settings.advancedSettings })
 		.button('Disable Advanced Settings', () => {
-			settings.advancedSettings.setData(false);
-			settings.advAnnounceState.setData(false);
-			settings.advAnnounceEndermen.setData(false);
+			settings.advancedSettings.setData(AntiGriefDefaults.advancedSettings);
+			settings.advAnnounceState.setData(AntiGriefDefaults.advAnnounceState);
+			settings.advAnnounceEndermen.setData(AntiGriefDefaults.advAnnounceEndermen);
 		}, { visible: settings.advancedSettings })
 		.show();
 };
